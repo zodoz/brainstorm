@@ -14,7 +14,8 @@ $DB = mysqli_select_db($connect, 'brainstorm');
  
 
  $Name = $_POST['uname'];
- $Pass = $_POST['pword'];
+ $PW = $_POST['pword'];
+ $Pass = SHA1('$PW' + 'br@instorm');
  $sql ="SELECT * FROM Users WHERE Username='$Name' AND Password='$Pass'";
  $Query = mysqli_query($connect, $sql);
  $NumRows = mysqli_num_rows($Query);
