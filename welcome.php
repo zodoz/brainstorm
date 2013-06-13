@@ -1,12 +1,12 @@
 <?php
  
-$connect = mysqli_connect("68.178.140.225","ZtrandedDatabase","Ztranded!1", "ZtrandedDatabase");
+$connect = mysqli_connect("localhost","brainstorm","br@inStorm", "brainstorm");
  if(!$connect)
  {
  die("Could not connect to database!");
  }
  
-$DB = mysqli_select_db($connect, 'ZtrandedDatabase');
+$DB = mysqli_select_db($connect, 'brainstorm');
  if(!$DB)
  {
  die("MySQL could not select Database!");
