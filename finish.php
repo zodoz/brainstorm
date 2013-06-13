@@ -10,9 +10,21 @@
  die("Could not connect to Database!");
  }
  
-$Username = $_POST['uname'];
+ $Username = $_POST['uname'];
  $Password = $_POST['pword'];
  $Re_Password = $_POST['pword2'];
+
+ $sqli ="SELECT * FROM Users WHERE Username ='$Username'";
+ $Query = mysqli_query($connect, $sqli);
+ $NumRows = mysqli_num_rows($Query);
+ if($NumRows != 0)
+	{
+	while($Row = mysqli_fetch_assoc(Query))
+		{
+			$DB_Name = $Row['Username'];
+		{
+	}
+
  
 if($Username == "")
  {
@@ -26,7 +38,11 @@ if($Username == "")
  {
  die("Your Passwords don't match, please try again!");
  }
- 
+ if($Username == $DB_Name)
+ {
+ die("Username already taken, please choose a different Username");
+ }
+
 $sql="INSERT INTO Users (Username, Password) VALUES ('$Username', '$Password')";
 if(!mysqli_query($connect, $sql))
  {
