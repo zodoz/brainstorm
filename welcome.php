@@ -44,8 +44,8 @@ if($NumRows != 0)
  {
          while($Row = mysqli_fetch_assoc($Query))
          {
-         $Database_Name = $Row['username'];
-         $Database_Pass = $Row['password'];
+         $Database_Name = $Row['Username'];
+         $Database_Pass = $Row['Password'];
          }
 
 
