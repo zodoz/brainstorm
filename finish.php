@@ -27,7 +27,7 @@ if($Username == "")
  die("Your Passwords don't match, please try again!");
  }
  
-$sql="INSERT INTO Users (username, password) VALUES ('$Username', '$Password')";
+$sql="INSERT INTO Users (Username, Password) VALUES ('$Username', '$Password')";
 if(!mysqli_query($connect, $sql))
  {
  die("Error updating database");
