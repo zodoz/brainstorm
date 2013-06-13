@@ -1,6 +1,6 @@
 <?php
  
-$connect = mysqli_connect("localhost","brainstorm","br@inStorm", "brainstorm");
+$connect = mysqli_connect("localhost","brainstorm","br@inStorm!", "brainstorm");
  if(!$connect)
  {
  die("Could not connect to database!");
