@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS User_Stories (
+CREATE TABLE IF NOT EXISTS brainstorm.User_Stories (
     `StoryId` int(11) NOT NULL,
     `UserId` int(11) NOT NULL,
     `Creator` tinyint(1) NOT NULL DEFAULT 0,
@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS User_Stories (
         ON DELETE CASCADE
         ON UPDATE CASCADE,
     CONSTRAINT FOREIGN KEY (`StoryId`)
-        REFERENCES `Story`(`StoryId`)
+        REFERENCES `Stories`(`StoryId`)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 ) Engine=InnoDB DEFAULT CHARSET=latin1;

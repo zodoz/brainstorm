@@ -1,3 +1,8 @@
+<?php
+
+include 'dbFunctions.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,7 +35,7 @@
       .form-horizontal .control-label {
         width: 100px;
       }
-      
+
       #wrap {
         min-height: 100%;
         height: auto !important;
@@ -85,39 +90,43 @@
                 <li><a href="#contact">Contact</a></li>
               </ul>
               <ul class="nav pull-right">
-		<li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Register<b class="caret"></b></a>
-		<ul class="dropdown-menu">
-		  <li>
-		    <form method="POST" action="finish.php" class="form-horizontal">
-		      <div class="control-group">
-			<label class="control-label" for="registerEmail">Email</label>
-			<div class="controls">
-			  <input type="text" name="uname" id="registerEmail" placeholder="Email">
-			</div>
-		      </div>
-		      <div class="control-group">
-			<label class="control-label" for="registerPassword">Password</label>
-			<div class="controls">
-			  <input type="password" name="pword" id="registerPassword" placeholder="Password">
-			</div>
-		      </div>
-		      <div class="control-group">
-			<label class="control-label" for="retypePassword">Re-Type Password</label>
-			<div class="controls">
-			  <input type="password" name="pword2" id="retypePassword" placeholder="Re-Type Password">
-			  <button type="submit" class="btn">Register</button>
-			</div>
-		      </div>
-		    </form>
-		  </li>
-		</ul>
-		</li>
-	      </ul>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Register<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li>
+            <form method="POST" action="finish.php" class="form-horizontal">
+              <div class="control-group">
+            <label class="control-label" for="registerEmail">Email</label>
+            <div class="controls">
+              <input type="text" name="uname" id="registerEmail" placeholder="Email">
+            </div>
+              </div>
+              <div class="control-group">
+            <label class="control-label" for="registerPassword">Password</label>
+            <div class="controls">
+              <input type="password" name="pword" id="registerPassword" placeholder="Password">
+            </div>
+              </div>
+              <div class="control-group">
+            <label class="control-label" for="retypePassword">Re-Type Password</label>
+            <div class="controls">
+              <input type="password" name="pword2" id="retypePassword" placeholder="Re-Type Password">
+              <button type="submit" class="btn">Register</button>
+            </div>
+              </div>
+            </form>
+          </li>
+        </ul>
+        </li>
+        </ul>
 
-		<ul class="nav pull-right">
+<?php
+if(!isLoggedIn())
+{
+?>
+        <ul class="nav pull-right">
                 <li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li>
                     <form method="POST" action="welcome.php" class="form-horizontal">
@@ -139,13 +148,16 @@
                             <input type="checkbox"> Remember me
                           </label>
                           <button type="submit" class="btn">Sign in</button>
-			</div>
+            </div>
                       </div>
                     </form>
                   </li>
                 </ul>
                 </li>
               </ul>
+<?php
+}
+?>
             </div><!--/.nav-collapse -->
           </div>
         </div>
@@ -168,19 +180,19 @@
       </div>
     </div>
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap-transition.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap-transition.js"></script>
+<script src="js/bootstrap-alert.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-dropdown.js"></script>
+<script src="js/bootstrap-scrollspy.js"></script>
+<script src="js/bootstrap-tab.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script src="js/bootstrap-popover.js"></script>
+<script src="js/bootstrap-button.js"></script>
+<script src="js/bootstrap-collapse.js"></script>
+<script src="js/bootstrap-carousel.js"></script>
+<script src="js/bootstrap-typeahead.js"></script>
 
-  </body>
-</html>
+</body>
+    </html>
