@@ -144,7 +144,62 @@ function addFriend($friendID) {
 //*/
 //}}}1
 //{{{1 Story functions
+function getUserStories() {
+    return queryArray(
+        "SELECT StoryId, IFNULL(Title, 'Untitled') AS Title, ".
+            "NumRounds, TimeStart, TimeEnd ".
+        "FROM ".
+            "Stories JOIN User_Stories USING(StoryId) ".
+        "WHERE UserId = ".getUserId()
+    );
+}
 function createStory() {
+    global $mysqli;
+    query(
+        "INSERT INTO Story(TimeStart) VALUES(NOW())"
+    );
+    return getLastInsertId();
+}
+/**
+ * Links an array of users to a story.
+ */
+function addusersToStory($storyId, $userIds, $creatorUserId = 0) {
+    $q = "INSERT INTO User_Stories(UserId, StoryId, Creator) VALUES";
+    $comma = "";
+    foreach($userIds as $userId) {
+        $creator = 0;
+        if($creatorUserId = $userId) {
+            $creator = 1;
+        }
+        $q .= "($userId, $storyId, $creator)".$comma;
+        $comma = ",";
+    }
+    query($q);
+}
+//}}}1
+//{{{1 Entry functions
+function getLastEntry($storyId) {
+    return queryArray(
+        "SELECT * ".
+        "FROM Entries ".
+        "WHERE StoryId = $storyId ".
+        "ORDER BY Position DESC ".
+        "LIMIT 1"
+    );
+}
+function insertEntry($storyId, $userId, $entryText, $position) {
+    query(
+        "INSERT INTO Entries(StoryId, UserId, Entry, Position) ".
+        "VALUES($storyId, $userId, '$entryText', $position)"
+    );
+}
+function getAllEntries($storyId) {
+    return queryArray(
+        "SELECT * ".
+        "FROM Entries ".
+        "WHERE StoryId = $storyId ".
+        "ORDER BY Position ASC"
+    );
 }
 //}}}1
 
